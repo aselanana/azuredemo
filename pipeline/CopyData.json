@@ -1,0 +1,114 @@
+{
+	"name": "CopyData",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_931",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "data//Iris.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.Id"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "SepalLengthCm",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SepalLengthCm",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "SepalWidthCm",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SepalWidthCm",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "PetalLengthCm",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PetalLengthCm",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "PetalWidthCm",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PetalWidthCm",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Species",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Species",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_931",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_931",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

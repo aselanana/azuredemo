@@ -1,0 +1,43 @@
+{
+	"name": "SourceDataset_931",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "logstoredemo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Iris.csv",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Id"
+			},
+			{
+				"name": "SepalLengthCm"
+			},
+			{
+				"name": "SepalWidthCm"
+			},
+			{
+				"name": "PetalLengthCm"
+			},
+			{
+				"name": "PetalWidthCm"
+			},
+			{
+				"name": "Species"
+			}
+		]
+	}
+}
